@@ -214,10 +214,15 @@ extension TopStoriesDataSource: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
+        guard let titleFont = titleFont, let abstractFont = abstractFont, let dateFont = dateFont else {
+            
+            return CGSize(width: 0, height: 0)
+        }
+        
         if isSearchResultsShown && indexPath.row < (viewModel?.searchedNewsList.count ?? 0) {
             
-            let titleHeight = UILabel.heightWithContent(text: viewModel?.searchedNewsList[indexPath.row].headline?.main ?? "", font: titleFont!, width: contentWidth)
-            let leadParaHeight = UILabel.heightWithContent(text: viewModel?.searchedNewsList[indexPath.row].leadParagraph ?? "", font: abstractFont!, width: contentWidth)
+            let titleHeight = UILabel.heightWithContent(text: viewModel?.searchedNewsList[indexPath.row].headline?.main ?? "", font: titleFont, width: contentWidth)
+            let leadParaHeight = UILabel.heightWithContent(text: viewModel?.searchedNewsList[indexPath.row].leadParagraph ?? "", font: abstractFont, width: contentWidth)
             
             let totalHeight = titleHeight + leadParaHeight + TopStoriesConstants.searchResultHeightPadding.rawValue
             
@@ -227,9 +232,9 @@ extension TopStoriesDataSource: UICollectionViewDelegate, UICollectionViewDataSo
             if !isSearchResultsShown && indexPath.row < (viewModel?.updatedNewsList.count ?? 0) {
                 
                 
-                let titleHeight = UILabel.heightWithContent(text: viewModel?.updatedNewsList[indexPath.row].title ?? "", font: titleFont!, width: contentWidth)
-                let abstractHeight = UILabel.heightWithContent(text: viewModel?.updatedNewsList[indexPath.row].abstract ?? "", font: abstractFont!, width: contentWidth)
-                let dateHeight = UILabel.heightWithContent(text: viewModel?.updatedNewsList[indexPath.row].pubDate ?? "", font: dateFont!, width: contentWidth)
+                let titleHeight = UILabel.heightWithContent(text: viewModel?.updatedNewsList[indexPath.row].title ?? "", font: titleFont, width: contentWidth)
+                let abstractHeight = UILabel.heightWithContent(text: viewModel?.updatedNewsList[indexPath.row].abstract ?? "", font: abstractFont, width: contentWidth)
+                let dateHeight = UILabel.heightWithContent(text: viewModel?.updatedNewsList[indexPath.row].pubDate ?? "", font: dateFont, width: contentWidth)
                 
                 let expectedHeight = titleHeight + abstractHeight + dateHeight + TopStoriesConstants.defaultImageHeight.rawValue + TopStoriesConstants.topResultsHeightPadding.rawValue
                 

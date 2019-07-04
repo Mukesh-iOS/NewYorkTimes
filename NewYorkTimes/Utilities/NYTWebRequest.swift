@@ -21,7 +21,13 @@ struct NYTWebRequest {
         
         if Reachability().isConnectedToNetwork() {
             
-            URLSession.shared.dataTask(with: serviceURL!, completionHandler: {
+            guard let serviceURL = serviceURL else {
+                
+                completionHandler(nil, "URL not provided")
+                return
+            }
+            
+            URLSession.shared.dataTask(with: serviceURL, completionHandler: {
                 (data, response, error) in
                 
                 guard error == nil else {
@@ -45,7 +51,7 @@ struct NYTWebRequest {
                 case StatusCode.Success:
                     
                     do {
-                        let response = try JSONSerialization.jsonObject(with: data!, options:.allowFragments)
+                        let response = try JSONSerialization.jsonObject(with: responseData, options:.allowFragments)
                         
                         // This code will be executed for a response json of dictionary format
                         
@@ -53,7 +59,7 @@ struct NYTWebRequest {
                             
                             let decoder = JSONDecoder()
                             
-                            let resultantModel = try decoder.decode(resultStruct.self, from: data!)
+                            let resultantModel = try decoder.decode(resultStruct.self, from: responseData)
                             DispatchQueue.main.async {
                                 completionHandler(resultantModel, nil)
                             }
@@ -88,26 +94,28 @@ struct NYTWebRequest {
         }
     }
     
-    func loadQueryParams(_ params : NSMutableDictionary?, toURL url : URL) -> URL {
+    func loadQueryParams(_ params : Dictionary<String, Any>?, toURL url : URL) -> URL {
         
-        var fullURL = url
-        
-        if  params != nil && (params?.count)! > 0 {
-            
-            var urlComponents = URLComponents(string: "\(fullURL)")
+        if let params = params, params.count > 0 {
+          
+            var urlComponents = URLComponents(string: "\(url)")
             
             var queryItems = [URLQueryItem]()
             
-            for (key, value) in params! {
-                let queryItem = URLQueryItem(name: key as! String, value: String(describing: value))
+            for (key, value) in params {
+                let queryItem = URLQueryItem(name: key, value: String(describing: value))
                 queryItems.append(queryItem)
             }
             
             urlComponents?.queryItems = queryItems
-            fullURL = (urlComponents?.url)!
+            
+            if let constructedURL = urlComponents?.url {
+                
+                return constructedURL
+            }
         }
-        
-        return fullURL
+
+        return url
     }
 }
 

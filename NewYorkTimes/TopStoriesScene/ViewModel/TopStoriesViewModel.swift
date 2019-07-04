@@ -21,12 +21,18 @@ class TopStoriesViewModel: NSObject {
     
     func getTopStories(pageNumber: Int) {
         
-        let params = NSMutableDictionary()
-        params.setValue(APIKey.nyTimes.rawValue, forKey: "api-key")
-        params.setValue(ContentLimit.defaultLimit.rawValue, forKey: "limit")
-        params.setValue(ContentLimit.defaultLimit.rawValue * pageNumber, forKey: "offset")
+        var params = Dictionary<String, Any>()
+        params["api-key"] = APIKey.nyTimes.rawValue
+        params["limit"] = ContentLimit.defaultLimit.rawValue
+        params["offset"] = ContentLimit.defaultLimit.rawValue * pageNumber
 
-        let searchURL = NYTWebRequest().loadQueryParams(params, toURL: URL(string: NYTServiceHelper.listOfNews)!)
+        guard let serviceURL = URL(string: NYTServiceHelper.listOfNews) else {
+            
+            error.value = FTError.Invalid("Invalid URL formation")
+            return
+        }
+        
+        let searchURL = NYTWebRequest().loadQueryParams(params, toURL: serviceURL)
         
         NYTWebRequest.fetchDetailsWith(serviceURL: searchURL, resultStruct: TopStoriesModel.self) { [weak self] (newsInfo, errorInfo) in
             
@@ -65,12 +71,17 @@ class TopStoriesViewModel: NSObject {
     
     func fetchDetailsforNews(searchNews: String, pageNumber: Int) {
         
-        let params = NSMutableDictionary()
-        params.setValue(APIKey.nyTimes.rawValue, forKey: "api-key")
-        params.setValue(searchNews, forKey: "q")
-        params.setValue(pageNumber, forKey: "page")
+        var params = Dictionary<String, Any>()
+        params["api-key"] = APIKey.nyTimes.rawValue
+        params["q"] = searchNews
+        params["page"] = pageNumber
         
-        let searchURL = NYTWebRequest().loadQueryParams(params, toURL: URL(string: NYTServiceHelper.searchNews)!)
+        guard let serviceURL = URL(string: NYTServiceHelper.searchNews) else {
+            
+            error.value = FTError.Invalid("Invalid URL formation")
+            return
+        }
+        let searchURL = NYTWebRequest().loadQueryParams(params, toURL: serviceURL)
         
         NYTWebRequest.fetchDetailsWith(serviceURL: searchURL, resultStruct: SearchStoriesModel.self) { [weak self] (newsInfo, errorInfo) in
             
