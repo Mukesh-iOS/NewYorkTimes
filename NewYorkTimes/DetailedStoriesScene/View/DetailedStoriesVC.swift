@@ -58,12 +58,15 @@ extension DetailedStoriesVC: UICollectionViewDelegate, UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let labelWidth = view.frame.size.width - 30
-        let titleFont = UIFont(name: "Helvetica Neue", size: 20.0)
-        let abstractFont = UIFont(name: "Helvetica Neue", size: 15.0)
         
-        let titleHeight = UILabel.heightWithContent(text: newsInfo?[indexPath.row].title ?? "", font: titleFont!, width: labelWidth)
-        let dateHeight = UILabel.heightWithContent(text: newsInfo?[indexPath.row].pubDate ?? "", font: abstractFont!, width: labelWidth)
-        let sourceHeight = UILabel.heightWithContent(text: newsInfo?[indexPath.row].source ?? "", font: abstractFont!, width: labelWidth)
+        guard let titleFont = UIFont(name: "Helvetica Neue", size: 20.0), let abstractFont = UIFont(name: "Helvetica Neue", size: 15.0) else {
+            
+            return CGSize(width: 0, height: 0)
+        }
+        
+        let titleHeight = UILabel.heightWithContent(text: newsInfo?[indexPath.row].title ?? "", font: titleFont, width: labelWidth)
+        let dateHeight = UILabel.heightWithContent(text: newsInfo?[indexPath.row].pubDate ?? "", font: abstractFont, width: labelWidth)
+        let sourceHeight = UILabel.heightWithContent(text: newsInfo?[indexPath.row].source ?? "", font: abstractFont, width: labelWidth)
         let imageHeight: CGFloat = DetailedStoriesConstants.defaultImageHeight.rawValue
         var newsCaption = ""
 
@@ -83,7 +86,7 @@ extension DetailedStoriesVC: UICollectionViewDelegate, UICollectionViewDataSourc
             print("Not available")
         }
         
-        let captionHeight = UILabel.heightWithContent(text: newsCaption, font: abstractFont!, width: labelWidth)
+        let captionHeight = UILabel.heightWithContent(text: newsCaption, font: abstractFont, width: labelWidth)
         
         let expectedHeight = titleHeight + dateHeight + sourceHeight + imageHeight + captionHeight + DetailedStoriesConstants.detailedStoriesHeightPadding.rawValue
         

@@ -1,0 +1,40 @@
+{
+    "status": "OK",
+    "copyright": "Copyright (c) 2019 The New York Times Company. All Rights Reserved.",
+    "response": {
+        "docs": [
+            {
+                "web_url": "https://www.nytimes.com/2019/04/25/opinion/india-elections.html",
+                "snippet": "The Election Commission of India runs the elections. A former head of the federal body explains how it is done.",
+                "lead_paragraph": "Editor’s Note: India’s general elections for the lower house of the Parliament started on April 11 and will conclude on May 23. The political party or the coalition of parties that wins a majority of the 545 seats will form the next government. S.Y. Quraishi, who headed the Election Commission of India between 2010 and 2012, the federal body conducting the elections, explains how elections are conducted and the effort it takes.",
+                "abstract": "The Election Commission of India runs the elections. A former head of the federal body explains how it is done.",
+                "blog": { },
+                "source": "The New York Times",
+                "headline": {
+                    "main": "What It Takes to Run an Election for India",
+                    "kicker": null,
+                    "content_kicker": null,
+                    "print_headline": null,
+                    "name": null,
+                    "seo": null,
+                    "sub": null
+                },
+                "keywords": [],
+                "pub_date": "2019-04-25T15:00:10+0000",
+                "document_type": "article",
+                "news_desk": "OpEd",
+                "section_name": "Opinion",
+                "byline": {},
+                "type_of_material": "Op-Ed",
+                "_id": "nyt://article/7730728b-b3fc-5710-bfdf-c118145ed5be",
+                "word_count": 1883,
+                "uri": "nyt://article/7730728b-b3fc-5710-bfdf-c118145ed5be"
+            }
+        ],
+        "meta": {
+            "hits": 476716,
+            "offset": 0,
+            "time": 88
+        }
+    }
+}

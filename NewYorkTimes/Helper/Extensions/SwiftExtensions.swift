@@ -38,8 +38,14 @@ extension UIImageView {
 extension Data {
     
     func getDataFor(url: URL) -> Data {
-        let imageData = try! Data(contentsOf: url)
-        return imageData
+        do {
+            let imageData = try Data(contentsOf: url)
+            return imageData
+        }
+        catch {
+            
+            return Data()
+        }
     }
 }
 

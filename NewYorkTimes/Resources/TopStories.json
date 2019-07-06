@@ -1,0 +1,85 @@
+{
+    "results": [
+        {
+            "slug_name": "05spanish",
+            "section": "U.S.",
+            "subsection": "Politics",
+            "title": "Is Campaign-Trail Spanish Really What Latino Voters Want to Hear?",
+            "abstract": "It might not be, according to polls, but that isn’t stopping Beto O’Rourke, Cory Booker and others.",
+            "url": "https://www.nytimes.com/2019/07/05/us/politics/2020-candidates-spanish.html",
+            "byline": "By JENNIFER MEDINA",
+            "thumbnail_standard": "https://static01.nyt.com/images/2019/07/05/us/politics/05spanish1/05spanish1-thumbStandard.jpg",
+            "item_type": "Article",
+            "source": "The New York Times",
+            "updated_date": "2019-07-05T12:07:41-04:00",
+            "created_date": "2019-07-05T12:07:41-04:00",
+            "published_date": "2019-07-04T20:00:00-04:00",
+            "first_published_date": "2019-07-05T12:06:10-04:00",
+            "material_type_facet": "News",
+            "kicker": null,
+            "subheadline": null,
+            "des_facet": [
+                "Spanish Language",
+                "Presidential Election of 2020",
+                "United States Politics and Government",
+                "Race and Ethnicity"
+            ],
+            "org_facet": [
+                "Debates (Political)",
+                "Hispanic-Americans",
+                "Democratic Party"
+            ],
+            "per_facet": [
+                "Booker, Cory A",
+                "Buttigieg, Pete (1982- )",
+                "Castro, Julian",
+                "O'Rourke, Beto",
+                "Trump, Donald J"
+            ],
+            "geo_facet": "",
+            "related_urls": null,
+            "multimedia": [
+                {
+                    "url": "https://static01.nyt.com/images/2019/07/05/us/politics/05spanish1/05spanish1-thumbStandard.jpg",
+                    "format": "Standard Thumbnail",
+                    "height": 75,
+                    "width": 75,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "A recent poll by a Latino advocacy group showed that a candidate’s ability to speak Spanish was last on a list of Latino voters’ priorities.",
+                    "copyright": "Ruth Fremson/The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2019/07/05/us/politics/05spanish1/05spanish1-articleInline.jpg",
+                    "format": "Normal",
+                    "height": 127,
+                    "width": 190,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "A recent poll by a Latino advocacy group showed that a candidate’s ability to speak Spanish was last on a list of Latino voters’ priorities.",
+                    "copyright": "Ruth Fremson/The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2019/07/05/us/politics/05spanish1/05spanish1-mediumThreeByTwo210.jpg",
+                    "format": "mediumThreeByTwo210",
+                    "height": 140,
+                    "width": 210,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "A recent poll by a Latino advocacy group showed that a candidate’s ability to speak Spanish was last on a list of Latino voters’ priorities.",
+                    "copyright": "Ruth Fremson/The New York Times"
+                },
+                {
+                    "url": "https://static01.nyt.com/images/2019/07/05/us/politics/05spanish1/05spanish1-mediumThreeByTwo440.jpg",
+                    "format": "mediumThreeByTwo440",
+                    "height": 293,
+                    "width": 440,
+                    "type": "image",
+                    "subtype": "photo",
+                    "caption": "A recent poll by a Latino advocacy group showed that a candidate’s ability to speak Spanish was last on a list of Latino voters’ priorities.",
+                    "copyright": "Ruth Fremson/The New York Times"
+                }
+            ]
+        }
+    ]
+}
