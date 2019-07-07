@@ -10,18 +10,12 @@ import XCTest
 @testable import NewYorkTimes
 
 class TopStoriesTests: XCTestCase {
-
-    var sessionUnderTest: URLSession!
     
     override func setUp() {
         super.setUp()
-        
-        sessionUnderTest = URLSession(configuration: URLSessionConfiguration.default)
     }
 
     override func tearDown() {
-        
-        sessionUnderTest = nil
         super.tearDown()
     }
     
